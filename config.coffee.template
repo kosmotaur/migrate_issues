@@ -1,0 +1,34 @@
+exports.github =
+repo :
+  user : ""
+  name : ""
+auth :
+  user : ""
+  pass : ""
+
+exports.youtrack =
+host : ""
+auth :
+  user : ""
+  pass : ""
+
+exports.mappings =
+"numberInProject" : "number"
+"summary"         : "title"
+"description"     : "body"
+"created"         :
+  "field"   : "created_at"
+  "convert" : (val) ->
+    +new Date(val)
+"updated"         :
+  "field"   : "updated_at"
+  "convert" : (val) ->
+    +new Date(val)
+"resolved"        :
+  "field"   : "closed_at"
+  "convert" : (val) ->
+    +new Date(val)
+"reporterName":
+  "field": "user.login"
+  "convert" : (val) ->
+    val
