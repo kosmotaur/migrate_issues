@@ -2,3 +2,4 @@ config.coffee
 *.iml
 .idea
 data_schemas
+old_igi.coffee
