@@ -13,13 +13,8 @@ task 'lint', 'Coffeelint sources', ->
   lint = spawn 'node_modules/coffeelint/bin/coffeelint', ['-r', 'lib']
   lint.stdout.on 'data', log
   lint.stderr.on 'data', error
-  lint.on 'exit', ->
-    console.info "Linting complete"
 
 task 'test', 'Run tests', ->
-  readdir "test", (err, files) ->
-    vows = spawn 'node_modules/vows/bin/vows', files.map (file) -> 'test/' + file
-    vows.stdout.on 'data', log
-    vows.stderr.on 'data', error
-    vows.on 'exit', ->
-      console.info "Testing complete"
+  nodeunit = spawn 'node_modules/nodeunit/bin/nodeunit', ['test/']
+  nodeunit.stdout.on 'data', log
+  nodeunit.stderr.on 'data', error
