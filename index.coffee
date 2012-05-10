@@ -1,1 +1,1 @@
-require("migrateIssues").migrateIssues()
+require("./").migrateIssues()

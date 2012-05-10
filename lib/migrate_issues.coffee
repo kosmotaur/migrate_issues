@@ -1,7 +1,6 @@
-config = require 'config'
+config = require '../config/config'
+githubConnector = new (require './github_issues_connector').GithubConnector config.github
+youtrackConnector = new (require './youtrack_issues_connector').YoutrackConnector config.youtrack
 
 exports.migrateIssues = ->
-  ghc = new GitHubConnector config.github
-  ytc = new YouTrackConnector config.youtrack
-
-  ytc.import ghc
+  youtrackConnector.issues = githubConnector.issues
