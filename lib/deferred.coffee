@@ -1,0 +1,1 @@
+exports.Deferred = require("jquery").Deferred

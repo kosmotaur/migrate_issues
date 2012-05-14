@@ -1,1 +1,1 @@
-require("./").migrateIssues()
+require("./lib/migrate_issues")

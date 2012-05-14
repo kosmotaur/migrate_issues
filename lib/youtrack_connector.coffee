@@ -1,0 +1,2 @@
+exports.YoutrackConnector =
+  class YoutrackConnector
