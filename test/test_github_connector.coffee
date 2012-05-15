@@ -8,18 +8,11 @@ suite.setUp = (callback) ->
   callback()
 
 suite["Test github connector"] =
-  "test if issues field is a getter"               : (test) ->
-    descriptor = Object.getOwnPropertyDescriptor @ghc, 'issues'
-    test.ok typeof descriptor, 'object'
-    test.ok typeof descriptor.get, 'function'
-    test.done()
-  "test if issues getter returns a promise"        : (test) ->
-    console.dir(@ghc.issues)
-    test.ok typeof @ghc.issues.then, "function"
+  "test if connector exposes a promise"        : (test) ->
+    test.ok typeof @ghc.promise.then, "function"
     test.done()
   "test if promise calling back with issues array" : (test) ->
     test.expect 1
-    @ghc.issues.then (issues) ->
-      console.dir(issues)
+    @ghc.promise.then (issues) ->
       test.ok Array.isArray issues
       test.done()

@@ -23,7 +23,6 @@ exports.GitHubConnector =
       req = https.request @requestOptions, (res) =>
         res.on "data", (chunk) -> resBody += chunk
         res.on "end", =>
-          @requestsMade++
           @issues = @issues.concat JSON.parse resBody
           rest = res.headers.link.split(",").reduce ((memo, el) ->
             split = el.split(";")

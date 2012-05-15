@@ -1,5 +1,4 @@
 config.coffee
-old_igi.coffee
 *.iml
 .idea
 data_schemas
