@@ -1,7 +1,7 @@
-Migrate issues between GitHub Issues and YouTrack
+# Migrate issues between GitHub Issues and YouTrack
 
 Package currently supports only GitHub API v3 -> YouTrack 3.x issues migration.
-Before using, copy config/config.coffee.template to config/config.coffee, fill in credentials, repo names, URL of your YouTrack installation. If needed, edit mapping functions to convert field values of issues to desired format.
+Before using, copy `config/config.coffee.template` to `config/config.coffee`, fill in credentials, repo names, URL of your YouTrack installation. If needed, edit mapping functions to convert field values of issues to desired format.
 
 To use from command line, do `coffee index.coffee`. You will get the result report written to `youtrack_response.xml`. Please leave test flag in the config file set to true at first, to see if everything goes smooth. You can avoid messing up your YouTrack issues this way. If you get an error-free report XML, you can change it to false to do the actual import.
 
