@@ -1,6 +1,14 @@
+Deferred = require("./deferred").Deferred
 config = require '../config/config'
-githubConnector = new (require 'github_connector').GithubConnector config.github
-youtrackConnector = new (require 'youtrack_connector').YoutrackConnector config.youtrack
+IssueSet = require("./issue_set").IssueSet
 
 exports.migrateIssues = ->
-  youtrackConnector.issues = githubConnector.issues
+  d = new Deferred
+
+  ghc = new (require './github_connector').GitHubConnector config.github
+  ytc = new (require './youtrack_connector').YouTrackConnector config.youtrack
+  ghc.d.then (issues) ->
+    ytc.importIssues(new IssueSet issues).then (res) ->
+      d.resolve(res)
+
+  d

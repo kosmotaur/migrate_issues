@@ -1,34 +1,30 @@
 exports.github =
-repo :
-  user : ""
-  name : ""
-auth :
-  user : ""
-  pass : ""
+  repo:
+    user: "REPO_OWNER"
+    name: "REPO_NAME"
+  auth:
+    user: "USERNAME"
+    pass: "PASSWORD"
+  mappings:
+    issue:
+      number: (input) -> input.number
+      summary: (input) -> input.title
+      description: (input) -> input.body
+      created: (input) -> Date.parse input.created_at
+      updated: (input) -> Date.parse input.updated_at
+      resolved: (input) -> input.closed_at
+      reporter: (input) -> input.user.login
+    comment:
+      author: (input) -> input.user.login
+      text: (input) -> input.body
+      created: (input) -> Date.parse input.created_at
+      updated: (input) -> Date.parse input.updated_at
 
 exports.youtrack =
-host : ""
-auth :
-  user : ""
-  pass : ""
+  url: 'YOUTRACK_URL'
+  project: 'PROJECT_NAME'
+  auth:
+    user: "USERNAME"
+    pass: "PASSWORD"
+  test: true
 
-exports.mappings =
-"numberInProject" : "number"
-"summary"         : "title"
-"description"     : "body"
-"created"         :
-  "field"   : "created_at"
-  "convert" : (val) ->
-    +new Date(val)
-"updated"         :
-  "field"   : "updated_at"
-  "convert" : (val) ->
-    +new Date(val)
-"resolved"        :
-  "field"   : "closed_at"
-  "convert" : (val) ->
-    +new Date(val)
-"reporterName":
-  "field": "user.login"
-  "convert" : (val) ->
-    val

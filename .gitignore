@@ -3,3 +3,4 @@ config.coffee
 .idea
 data_schemas
 node_modules
+youtrack_response.xml

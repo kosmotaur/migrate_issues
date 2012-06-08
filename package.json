@@ -18,8 +18,8 @@
     "request"       : "~2"
   },
   "devDependencies" : {
-    "nodeunit"   : "0.7.4",
-    "coffeelint" : "0.4.0"
+    "coffeelint"   : "0.4.0",
+    "node-logging" : "0.1.3"
   },
   "main"            : "./lib/migrate_issues.coffee",
   "directories"     : {
