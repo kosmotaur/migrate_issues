@@ -19,9 +19,10 @@ exports.GitHubConnector =
       @requestsFinished = 0
       @githubIssues = []
       @requestBaseOptions =
-        host  : "api.github.com"
-        auth  : config.auth.user + ":" + config.auth.pass
-        query : {}
+        host    : "api.github.com"
+        auth    : config.auth.user + ":" + config.auth.pass
+        headers : {'User-Agent': 'migrate_issues'}
+        query   : {}
       @requestIssuesOptions =
         _.extend(
           {},
